@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nirbhay ❤️ Honeymoon in Kashmir 2026</title>
+<title>Kashmir Honeymoon 2026</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -14,6 +14,7 @@
   padding:0;
   box-sizing:border-box;
   font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
 }
 
 body{
@@ -22,15 +23,25 @@ body{
   overflow-x:hidden;
 }
 
-/* Snow Canvas */
-canvas{
+/* Snow Animation */
+.snow{
   position:fixed;
   top:0;
   left:0;
-  z-index:-1;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  background-image:url('https://i.ibb.co/5Y3Y5RZ/snow.png');
+  animation:snow 20s linear infinite;
+  opacity:0.4;
 }
 
-/* Hero */
+@keyframes snow{
+  0%{background-position:0 0;}
+  100%{background-position:0 1000px;}
+}
+
+/* Hero Section */
 header{
   height:100vh;
   background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
@@ -45,11 +56,12 @@ header{
 
 header h1{
   font-size:2.5rem;
+  margin-bottom:15px;
 }
 
 header p{
-  margin-top:10px;
   font-size:1.2rem;
+  opacity:0.9;
 }
 
 .btn{
@@ -65,11 +77,12 @@ header p{
 }
 
 .btn:hover{
+  background:#e68900;
   transform:scale(1.05);
 }
 
 section{
-  padding:60px 20px;
+  padding:50px 20px;
   max-width:1000px;
   margin:auto;
 }
@@ -77,37 +90,18 @@ section{
 .card{
   background:rgba(255,255,255,0.1);
   padding:20px;
-  border-radius:20px;
-  backdrop-filter:blur(15px);
-  margin-bottom:30px;
+  border-radius:15px;
+  margin-bottom:25px;
+  backdrop-filter:blur(10px);
 }
 
-/* Tabs */
-.tabs{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  justify-content:center;
-  margin-bottom:20px;
+.card h2{
+  color:#ffd54f;
+  margin-bottom:10px;
 }
 
-.tab{
-  padding:10px 20px;
-  background:#444;
-  border-radius:20px;
-  cursor:pointer;
-}
-
-.tab.active{
-  background:#ff9800;
-}
-
-.tab-content{
-  display:none;
-}
-
-.tab-content.active{
-  display:block;
+ul{
+  margin-left:20px;
 }
 
 /* Gallery */
@@ -122,15 +116,28 @@ section{
   border-radius:15px;
   height:200px;
   object-fit:cover;
+  transition:0.3s;
 }
 
-/* Calculator */
-input{
+.gallery img:hover{
+  transform:scale(1.05);
+}
+
+/* Budget Table */
+table{
   width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+}
+
+th,td{
   padding:10px;
-  margin:8px 0;
-  border:none;
-  border-radius:10px;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,0.3);
+}
+
+th{
+  background:#ff9800;
 }
 
 footer{
@@ -148,164 +155,92 @@ footer{
 
 <body>
 
-<canvas id="snow"></canvas>
+<div class="snow"></div>
 
 <header>
-  <h1>Nirbhay ❤️ Your Dream Honeymoon</h1>
-  <p>Kashmir | 25 Dec – 31 Dec 2026 ❄️</p>
-  <button class="btn" onclick="document.getElementById('itinerary').scrollIntoView()">Explore Plan</button>
+  <h1>💍 Kashmir Honeymoon 2026 ❄️</h1>
+  <p>25 December – 31 December | A Romantic Winter Escape</p>
+  <a href="#itinerary"><button class="btn">View Itinerary</button></a>
 </header>
 
 <section id="itinerary">
-  <h2 style="text-align:center;margin-bottom:20px;">📅 Interactive Itinerary</h2>
-
-  <div class="tabs">
-    <div class="tab active" onclick="showTab(0)">Day 1</div>
-    <div class="tab" onclick="showTab(1)">Day 2-3</div>
-    <div class="tab" onclick="showTab(2)">Day 4-5</div>
-    <div class="tab" onclick="showTab(3)">Day 6</div>
-    <div class="tab" onclick="showTab(4)">Day 7</div>
+  <div class="card">
+    <h2>Day 1 – Srinagar</h2>
+    <ul>
+      <li>Arrival & Dal Lake Check-in</li>
+      <li>Shikara Ride</li>
+      <li>Romantic Dinner</li>
+    </ul>
   </div>
 
-  <div class="card tab-content active">
-    Arrival in Srinagar • Dal Lake • Shikara Ride • Romantic Dinner
+  <div class="card">
+    <h2>Day 2 & 3 – Gulmarg Snow Stay</h2>
+    <ul>
+      <li>Snow Activities</li>
+      <li>Gondola Ride</li>
+      <li>Cozy Resort Stay</li>
+    </ul>
   </div>
 
-  <div class="card tab-content">
-    Gulmarg Snow Stay • Gondola Ride • Snow Activities
+  <div class="card">
+    <h2>Day 4 & 5 – Pahalgam Valley</h2>
+    <ul>
+      <li>Aru & Betaab Valley</li>
+      <li>Lidder River Walk</li>
+      <li>Valley View Stay</li>
+    </ul>
   </div>
 
-  <div class="card tab-content">
-    Pahalgam • Aru Valley • Betaab Valley • River Walk
+  <div class="card">
+    <h2>Day 6 – Return to Srinagar</h2>
+    <ul>
+      <li>Optional Sonamarg</li>
+      <li>Shopping & Relaxation</li>
+    </ul>
   </div>
 
-  <div class="card tab-content">
-    Optional Sonamarg • Shopping • Relax
-  </div>
-
-  <div class="card tab-content">
-    Mughal Gardens • Departure
+  <div class="card">
+    <h2>Day 7 – Departure</h2>
+    <ul>
+      <li>Mughal Gardens</li>
+      <li>Airport Transfer</li>
+    </ul>
   </div>
 </section>
 
 <section>
-  <h2 style="text-align:center;margin-bottom:20px;">🏨 Featured Hotels</h2>
-
-  <div class="card">
-    <h3>Srinagar – Lake View Hotel</h3>
-    <p>₹4,000 – ₹7,000 per night</p>
-  </div>
-
-  <div class="card">
-    <h3>Gulmarg – Pine View Resort</h3>
-    <p>₹5,000 – ₹8,000 per night</p>
-  </div>
-
-  <div class="card">
-    <h3>Pahalgam – Royal Spring</h3>
-    <p>₹4,000 – ₹6,000 per night</p>
+  <h2 style="text-align:center;color:#ffd54f;margin-bottom:20px;">📸 Romantic Gallery</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1607082349566-187342175e2e?q=80&w=800">
+    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800">
+    <img src="https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&w=800">
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=800">
   </div>
 </section>
 
 <section>
-  <h2 style="text-align:center;margin-bottom:20px;">💰 Budget Calculator</h2>
   <div class="card">
-    <input type="number" id="stay" placeholder="Accommodation Cost">
-    <input type="number" id="flight" placeholder="Flight Cost">
-    <input type="number" id="cab" placeholder="Cab Cost">
-    <input type="number" id="extra" placeholder="Meals & Extras">
-    <button class="btn" onclick="calculate()">Calculate Total</button>
-    <h3 id="total" style="margin-top:15px;"></h3>
+    <h2>💰 Estimated Budget (Couple)</h2>
+    <table>
+      <tr><th>Category</th><th>Cost (₹)</th></tr>
+      <tr><td>Accommodation</td><td>30,000 – 70,000</td></tr>
+      <tr><td>Flights</td><td>20,000 – 35,000</td></tr>
+      <tr><td>Private Cab</td><td>18,000 – 24,000</td></tr>
+      <tr><td>Meals & Activities</td><td>12,000 – 20,000</td></tr>
+      <tr><th>Total</th><th>85,000 – 1,59,000</th></tr>
+    </table>
   </div>
-</section>
 
-<section>
-  <h2 style="text-align:center;margin-bottom:20px;">📍 Location Map</h2>
-  <iframe 
-    src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Srinagar,Kashmir"
-    width="100%" height="300" style="border:0;border-radius:15px;" allowfullscreen>
-  </iframe>
-</section>
-
-<section>
-  <div style="text-align:center;">
+  <div style="text-align:center;margin-top:30px;">
     <button class="btn" onclick="window.print()">📄 Download as PDF</button>
-    <button class="btn" onclick="alert('Contact Travel Agent or Booking.com to Reserve')">📞 Book Now</button>
+    <button class="btn" onclick="alert('Contact Local Travel Agent or Booking.com for reservations.')">📞 Book Now</button>
   </div>
+
 </section>
 
 <footer>
-  Made with ❤️ for Your Beautiful Journey
+  Designed with ❤️ for Your Dream Honeymoon in Kashmir
 </footer>
-
-<!-- Romantic Background Music -->
-<audio autoplay loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_5a6c7e9e1e.mp3?filename=romantic-piano-ambient-124008.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-
-/* Snow Animation */
-let canvas=document.getElementById("snow");
-let ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-let snowflakes=[];
-for(let i=0;i<150;i++){
-  snowflakes.push({
-    x:Math.random()*canvas.width,
-    y:Math.random()*canvas.height,
-    r:Math.random()*4+1,
-    d:Math.random()
-  });
-}
-
-function drawSnow(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle="white";
-  ctx.beginPath();
-  for(let i=0;i<snowflakes.length;i++){
-    let f=snowflakes[i];
-    ctx.moveTo(f.x,f.y);
-    ctx.arc(f.x,f.y,f.r,0,Math.PI*2,true);
-  }
-  ctx.fill();
-  updateSnow();
-}
-
-function updateSnow(){
-  for(let i=0;i<snowflakes.length;i++){
-    let f=snowflakes[i];
-    f.y+=Math.pow(f.d,2)+1;
-    if(f.y>canvas.height){
-      snowflakes[i]={x:Math.random()*canvas.width,y:0,r:f.r,d:f.d};
-    }
-  }
-}
-
-setInterval(drawSnow,30);
-
-/* Tabs */
-function showTab(index){
-  let tabs=document.querySelectorAll('.tab');
-  let contents=document.querySelectorAll('.tab-content');
-  tabs.forEach(t=>t.classList.remove('active'));
-  contents.forEach(c=>c.classList.remove('active'));
-  tabs[index].classList.add('active');
-  contents[index].classList.add('active');
-}
-
-/* Calculator */
-function calculate(){
-  let stay=+document.getElementById("stay").value||0;
-  let flight=+document.getElementById("flight").value||0;
-  let cab=+document.getElementById("cab").value||0;
-  let extra=+document.getElementById("extra").value||0;
-  document.getElementById("total").innerHTML="Estimated Total: ₹ "+(stay+flight+cab+extra);
-}
-
-</script>
 
 </body>
 </html>
