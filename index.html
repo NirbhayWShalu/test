@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nirbhay ❤️ Honeymoon in Kashmir 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:white;
+  overflow-x:hidden;
+}
+
+/* Snow Canvas */
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+
+/* Hero */
+header{
+  height:100vh;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+  url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600') center/cover;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+header h1{
+  font-size:2.5rem;
+}
+
+header p{
+  margin-top:10px;
+  font-size:1.2rem;
+}
+
+.btn{
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:#ff9800;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+
+section{
+  padding:60px 20px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.card{
+  background:rgba(255,255,255,0.1);
+  padding:20px;
+  border-radius:20px;
+  backdrop-filter:blur(15px);
+  margin-bottom:30px;
+}
+
+/* Tabs */
+.tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  margin-bottom:20px;
+}
+
+.tab{
+  padding:10px 20px;
+  background:#444;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.tab.active{
+  background:#ff9800;
+}
+
+.tab-content{
+  display:none;
+}
+
+.tab-content.active{
+  display:block;
+}
+
+/* Gallery */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:15px;
+  height:200px;
+  object-fit:cover;
+}
+
+/* Calculator */
+input{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border:none;
+  border-radius:10px;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  background:black;
+}
+
+@media(max-width:600px){
+  header h1{font-size:1.8rem;}
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="snow"></canvas>
+
+<header>
+  <h1>Nirbhay ❤️ Your Dream Honeymoon</h1>
+  <p>Kashmir | 25 Dec – 31 Dec 2026 ❄️</p>
+  <button class="btn" onclick="document.getElementById('itinerary').scrollIntoView()">Explore Plan</button>
+</header>
+
+<section id="itinerary">
+  <h2 style="text-align:center;margin-bottom:20px;">📅 Interactive Itinerary</h2>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showTab(0)">Day 1</div>
+    <div class="tab" onclick="showTab(1)">Day 2-3</div>
+    <div class="tab" onclick="showTab(2)">Day 4-5</div>
+    <div class="tab" onclick="showTab(3)">Day 6</div>
+    <div class="tab" onclick="showTab(4)">Day 7</div>
+  </div>
+
+  <div class="card tab-content active">
+    Arrival in Srinagar • Dal Lake • Shikara Ride • Romantic Dinner
+  </div>
+
+  <div class="card tab-content">
+    Gulmarg Snow Stay • Gondola Ride • Snow Activities
+  </div>
+
+  <div class="card tab-content">
+    Pahalgam • Aru Valley • Betaab Valley • River Walk
+  </div>
+
+  <div class="card tab-content">
+    Optional Sonamarg • Shopping • Relax
+  </div>
+
+  <div class="card tab-content">
+    Mughal Gardens • Departure
+  </div>
+</section>
+
+<section>
+  <h2 style="text-align:center;margin-bottom:20px;">🏨 Featured Hotels</h2>
+
+  <div class="card">
+    <h3>Srinagar – Lake View Hotel</h3>
+    <p>₹4,000 – ₹7,000 per night</p>
+  </div>
+
+  <div class="card">
+    <h3>Gulmarg – Pine View Resort</h3>
+    <p>₹5,000 – ₹8,000 per night</p>
+  </div>
+
+  <div class="card">
+    <h3>Pahalgam – Royal Spring</h3>
+    <p>₹4,000 – ₹6,000 per night</p>
+  </div>
+</section>
+
+<section>
+  <h2 style="text-align:center;margin-bottom:20px;">💰 Budget Calculator</h2>
+  <div class="card">
+    <input type="number" id="stay" placeholder="Accommodation Cost">
+    <input type="number" id="flight" placeholder="Flight Cost">
+    <input type="number" id="cab" placeholder="Cab Cost">
+    <input type="number" id="extra" placeholder="Meals & Extras">
+    <button class="btn" onclick="calculate()">Calculate Total</button>
+    <h3 id="total" style="margin-top:15px;"></h3>
+  </div>
+</section>
+
+<section>
+  <h2 style="text-align:center;margin-bottom:20px;">📍 Location Map</h2>
+  <iframe 
+    src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Srinagar,Kashmir"
+    width="100%" height="300" style="border:0;border-radius:15px;" allowfullscreen>
+  </iframe>
+</section>
+
+<section>
+  <div style="text-align:center;">
+    <button class="btn" onclick="window.print()">📄 Download as PDF</button>
+    <button class="btn" onclick="alert('Contact Travel Agent or Booking.com to Reserve')">📞 Book Now</button>
+  </div>
+</section>
+
+<footer>
+  Made with ❤️ for Your Beautiful Journey
+</footer>
+
+<!-- Romantic Background Music -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_5a6c7e9e1e.mp3?filename=romantic-piano-ambient-124008.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* Snow Animation */
+let canvas=document.getElementById("snow");
+let ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let snowflakes=[];
+for(let i=0;i<150;i++){
+  snowflakes.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    r:Math.random()*4+1,
+    d:Math.random()
+  });
+}
+
+function drawSnow(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="white";
+  ctx.beginPath();
+  for(let i=0;i<snowflakes.length;i++){
+    let f=snowflakes[i];
+    ctx.moveTo(f.x,f.y);
+    ctx.arc(f.x,f.y,f.r,0,Math.PI*2,true);
+  }
+  ctx.fill();
+  updateSnow();
+}
+
+function updateSnow(){
+  for(let i=0;i<snowflakes.length;i++){
+    let f=snowflakes[i];
+    f.y+=Math.pow(f.d,2)+1;
+    if(f.y>canvas.height){
+      snowflakes[i]={x:Math.random()*canvas.width,y:0,r:f.r,d:f.d};
+    }
+  }
+}
+
+setInterval(drawSnow,30);
+
+/* Tabs */
+function showTab(index){
+  let tabs=document.querySelectorAll('.tab');
+  let contents=document.querySelectorAll('.tab-content');
+  tabs.forEach(t=>t.classList.remove('active'));
+  contents.forEach(c=>c.classList.remove('active'));
+  tabs[index].classList.add('active');
+  contents[index].classList.add('active');
+}
+
+/* Calculator */
+function calculate(){
+  let stay=+document.getElementById("stay").value||0;
+  let flight=+document.getElementById("flight").value||0;
+  let cab=+document.getElementById("cab").value||0;
+  let extra=+document.getElementById("extra").value||0;
+  document.getElementById("total").innerHTML="Estimated Total: ₹ "+(stay+flight+cab+extra);
+}
+
+</script>
+
+</body>
+</html>
