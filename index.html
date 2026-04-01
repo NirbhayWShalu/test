@@ -245,7 +245,14 @@ openMemories.onclick=(e)=>{
     memoryMusic.play().catch(()=>{});
 };
 
-heart.onclick=e=>e.stopPropagation();
+heart.onclick=(e)=>{
+    e.stopPropagation();
+
+    // Close modal when clicking heart again
+    modal.style.display="none";
+    memoryMusic.pause();
+    countdownMusic.play().catch(()=>{});
+};
 
 modal.onclick=()=>{
     modal.style.display="none";
